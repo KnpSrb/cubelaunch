@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Cubelaunch",
+  "version": "0.1.0",
+  "identifier": "com.cubelaunch.launcher",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Cubelaunch",
+        "width": 1180,
+        "height": 740,
+        "minWidth": 900,
+        "minHeight": 560,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: asset: http://asset.localhost https:; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis",
+      "app",
+      "dmg",
+      "appimage",
+      "deb",
+      "rpm"
+    ],
+    "createUpdaterArtifacts": true,
+    "publisher": "Cubelaunch",
+    "homepage": "https://github.com/KnpSrb/cubelaunch",
+    "copyright": "Cubelaunch contributors",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "Game",
+    "shortDescription": "Лаунчер Minecraft: Java Edition",
+    "longDescription": "Кроссплатформенный лаунчер Minecraft: Java Edition с инстансами, загрузчиками модов, Modrinth и CurseForge. Файлы игры скачиваются только с официальных серверов Mojang.",
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "Russian",
+          "English"
+        ],
+        "displayLanguageSelector": false
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "10.15"
+    },
+    "linux": {
+      "deb": {
+        "depends": []
+      },
+      "rpm": {
+        "depends": []
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEU0OTFCNDQ4OEZBQjcwNzYKUldSMmNLdVBTTFNSNURsaDhWMmhUQmg3TlEyNnArUmFPazhvandaTS9pbnVURFFFR2FuOHcyblUK",
+      "endpoints": [
+        "https://github.com/KnpSrb/cubelaunch/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

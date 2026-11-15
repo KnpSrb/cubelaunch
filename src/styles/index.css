@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Тема задаётся атрибутом data-theme на <html> (dark | light),
+   акцент — переменной --accent, которую выставляет src/app/theme.ts. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --accent: #4caf50;
+  --accent-fg: #ffffff;
+
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #e2e5ea;
+  --border: #d9dde3;
+  --text: #1c1f24;
+  --text-muted: #5f6672;
+  --danger: #d93838;
+  --warning: #c98a00;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 4px 16px rgb(0 0 0 / 0.06);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #16181c;
+  --surface: #1e2126;
+  --surface-2: #262a30;
+  --surface-3: #30353c;
+  --border: #353a42;
+  --text: #e8eaed;
+  --text-muted: #9aa1ab;
+  --danger: #f05454;
+  --warning: #e5a823;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.3);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --shadow-panel: var(--shadow);
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
