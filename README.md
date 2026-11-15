@@ -12,6 +12,12 @@
 > центр загрузок с очередью, группы с перетаскиванием, клонирование, экспорт и импорт инстансов (в т. ч. из Prism Launcher);
 > автообновление лаунчера, установщики для Windows, macOS и Linux.
 
+![Главный экран: инстансы по группам](docs/screenshots/instances.png)
+
+| Моды инстанса | Поиск на Modrinth | Настройки |
+|---|---|---|
+| ![Моды](docs/screenshots/mods.png) | ![Modrinth](docs/screenshots/modrinth.png) | ![Настройки](docs/screenshots/settings.png) |
+
 ## Установка
 
 Скачайте установщик со страницы релизов:
